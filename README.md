@@ -21,7 +21,7 @@ Usage
     });
 ```
 
-(* works with markers and vectorial layers *)
+( *works with markers and vectorial layers* )
 
 Authors
 -------
