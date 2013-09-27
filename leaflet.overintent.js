@@ -6,7 +6,7 @@ L.OverIntentInitHook = function () {
         if (timer !== null) return;
 
         timer = setTimeout(L.Util.bind(function () {
-            this.fire('mouseintent', {latlng: e.latlng});
+            this.fire('mouseintent', {latlng: e.latlng, layer: e.layer});
             timer = null;
         }, this), duration);
     });
