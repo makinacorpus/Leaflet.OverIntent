@@ -1,9 +1,10 @@
 L.OverIntentInitHook = function () {
-    var duration = 500,
-        timer = null;
+    var timer = null;
 
     this.on('mouseover', function (e) {
         if (timer !== null) return;
+
+        var duration = this.options.intentDuration || 300;
 
         timer = setTimeout(L.Util.bind(function () {
             this.fire('mouseintent', {latlng: e.latlng, layer: e.layer});
