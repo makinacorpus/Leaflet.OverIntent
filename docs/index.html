@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Leaflet Filelayer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Leaflet Filelayer plugin</h1>
+        <button class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <div class="menu closed">
+            <a class="sources" href="https://github.com/makinacorpus/Leaflet.OverIntent/">Sources</a>
+            <a class="logo" href="http://makina-corpus.com"><img class="icon" src="http://depot.makina-corpus.org/public/logo.gif" alt="Makina Corpus logo"/></a>
+        </div>
+    </header>
+    <main>
+        <div class="help">
+            <p>Pass your mouse on the markers to see the plugin in action</p>
+            <div class="sides">
+                <div class="left">
+                    Left is standard over event
+                </div>
+                <div class="right">
+                    Right is over intent event
+                </div>
+            </div>
+        </div>
+        <div id="map"></div>
+    </main>
+</body>
+<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>
+<script src="//unpkg.com/leaflet.smooth_marker_bouncing@1.1.4"></script>
+<script src="//unpkg.com/leaflet.overintent@1.0.0"></script>
+<script src="menu.js"></script>
+<script src="index.js"></script>
+</html>
