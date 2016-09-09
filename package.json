@@ -1,0 +1,34 @@
+{
+  "name": "leaflet-overintent",
+  "version": "1.0.0",
+  "description": "Add an intent event for leaflet",
+  "keywords": [
+    "Leaflet",
+    "GIS",
+    "HTML5",
+    "event",
+    "intent",
+    "over"
+  ],
+  "main": "src/leaflet.overintent.js",
+  "bugs": {
+    "url": "https://github.com/makinacorpus/Leaflet.OverIntent/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/makinacorpus/Leaflet.OverIntent.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "live-server --open=./dev"
+  },
+  "peerDependencies": {
+    "leaflet": "^0.7.7"
+  },
+  "devDependencies": {
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb-base": "^5.0.1",
+    "eslint-plugin-import": "^1.12.0",
+    "live-server": "^1.1.0"
+  }
+}

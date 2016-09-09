@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Leaflet.OverIntent</title>
+
+  <script type='text/javascript' src="//unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>
+  <script type='text/javascript' src="//unpkg.com/leaflet.smooth_marker_bouncing@1.1.4"></script>
+  <script type='text/javascript' src="../src/leaflet.overintent.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="//unpkg.com/leaflet@0.7.7/dist/leaflet.css">
+  <style type='text/css'>
+    #map {
+        position: absolute;
+        top:0;
+        left: 0;
+        right: 0;
+        bottom:0;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script type='text/javascript'>
+    window.onload = function () {
+
+      var map = L.map('map').setView([48.49, 1.36], 14);
+
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+
+      for (var i=0; i<100; i++) {
+        var lat = Math.random()/50 + 48.48
+          , lng = Math.random()/50 + 1.38;
+        L.marker([lat, lng], {intentDuration: 600})
+          .setBouncingOptions({
+              bounceHeight : 60,
+              bounceSpeed  : 54,
+              elastic: false
+          })
+         .addTo(map)
+         .on('mouseintent', function () { this.bounce(3) ; });
+      }
+
+
+      for (var i=0; i<100; i++) {
+        var lat = Math.random()/50 + 48.48
+          , lng = Math.random()/50 + 1.32;
+        L.marker([lat, lng])
+          .setBouncingOptions({
+              bounceHeight : 60,
+              bounceSpeed  : 54,
+              elastic: false
+          })
+         .addTo(map)
+         .on('mouseover', function () { this.bounce(3) ; });
+      }
+    };
+  </script>
+</body>
+</html>
