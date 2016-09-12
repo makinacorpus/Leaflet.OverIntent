@@ -7,6 +7,6 @@
     "no-restricted-syntax": 1,
     "no-prototype-builtins": 1,
     "no-caller": 1,
-    "indent": [2, 4, { "SwitchCase": 1, "VariableDeclarator": 1, "outerIIFEBody": 1 }]
+    "indent": [2, 2, { "SwitchCase": 1, "VariableDeclarator": 1, "outerIIFEBody": 1 }]
   }
 }

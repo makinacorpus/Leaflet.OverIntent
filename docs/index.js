@@ -1,49 +1,61 @@
-(function (window) {
-    'use strict';
+(function IFEE(window) {
+  'use strict';
 
-    function initMap() {
-        var L = window.L;
-        var map = L.map('map')
-          .setView([48.49, 1.36], 14)
-          .fitBounds([
-            [48.49, 1.40],
-            [48.48, 1.32]
-          ]);
+  function bounceMarker() {
+    this.bounce(3);
+  }
 
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+  function initOverMarkers(L, map, bouncingOptions) {
+    var i;
+    var lat;
+    var lng;
 
-
-        for (var i=0; i<100; i++) {
-          var lat = Math.random()/50 + 48.48
-            , lng = Math.random()/50 + 1.38;
-          L.marker([lat, lng], {intentDuration: 600})
-            .setBouncingOptions({
-                bounceHeight : 60,
-                bounceSpeed  : 54,
-                elastic: false
-            })
-          .addTo(map)
-          .on('mouseintent', function () { this.bounce(3) ; });
-        }
-
-
-        for (var i=0; i<100; i++) {
-          var lat = Math.random()/50 + 48.48
-            , lng = Math.random()/50 + 1.32;
-          L.marker([lat, lng])
-            .setBouncingOptions({
-                bounceHeight : 60,
-                bounceSpeed  : 54,
-                elastic: false
-            })
-          .addTo(map)
-          .on('mouseover', function () { this.bounce(3) ; });
-        }
+    for (i = 0; i < 100; i++) {
+      lat = (Math.random() / 50) + 48.48;
+      lng = (Math.random() / 50) + 1.38;
+      L.marker([lat, lng], { intentDuration: 600 })
+        .setBouncingOptions(bouncingOptions)
+        .addTo(map)
+        .on('mouseintent', bounceMarker);
     }
+  }
 
-    window.addEventListener('load', function () {
-        initMap();
-    });
+  function initIntentMarkers(L, map, bouncingOptions) {
+    var i;
+    var lat;
+    var lng;
+
+    for (i = 0; i < 100; i++) {
+      lat = (Math.random() / 50) + 48.48;
+      lng = (Math.random() / 50) + 1.32;
+      L.marker([lat, lng])
+        .setBouncingOptions(bouncingOptions)
+        .addTo(map)
+        .on('mouseover', bounceMarker);
+    }
+  }
+
+  function initMap() {
+    var L = window.L;
+    var bouncingOptions = {
+      bounceHeight: 60,
+      bounceSpeed: 54,
+      elastic: false
+    };
+    var map = L.map('map')
+      .setView([48.49, 1.36], 14)
+      .fitBounds([
+        [48.49, 1.40],
+        [48.48, 1.32]
+      ]);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    initOverMarkers(L, map, bouncingOptions);
+    initIntentMarkers(L, map, bouncingOptions);
+  }
+
+  window.addEventListener('load', initMap);
 }(window));
