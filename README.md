@@ -28,6 +28,18 @@ Usage
 * ``intentDuration`` : default is 300ms (See demo.)
 
 
+Changelog
+---------
+
+### 1.0.1
+
+* Allow Leaflet 1.x (peer dependency `leaflet >=0.7 <2`)
+
+### 1.0.0
+
+* Initial version
+
+
 Authors
 -------
 
